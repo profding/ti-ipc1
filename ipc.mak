@@ -120,7 +120,7 @@ else
    XDCPKG := $(subst /,\,$(XDCPKG))
 endif
 
-LIST = $(shell $(XDCPKG) ./packages | $(FILTER) "examples")
+LIST = $(shell $(XDCPKG) ./packages)
 
 #
 # Set XDCPATH to contain necessary repositories.
@@ -149,8 +149,6 @@ all:
 	@ echo building ipc packages ...
 # build everything but the packages with 'examples' in the namespace
 	@ $(XDC) -P $(LIST)
-# build the platforms that reside in the examples/platforms namespace
-	@ $(XDC) -PR ./packages/ti/sdo/ipc/examples/platforms
 
 clean:
 	@ echo cleaning ipc packages ...

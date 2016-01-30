@@ -51,8 +51,6 @@ BIOS_INC  = -I"`xdc.getPackageRepository("ti.sysbios")`"
 
 IPC_INC    = -I"`xdc.getPackageRepository("ti.sdo.ipc")`"
 
-IO_INC    = -I"`xdc.getPackageRepository("ti.sdo.io")`"
-
 UTILS_INC    = -I"`xdc.getPackageRepository("ti.sdo.utils")`"
 
 CC = `CGEN`/bin/`TARGET.cc.cmd` $(CCOPTS) -I `CGEN`/include
@@ -105,7 +103,7 @@ Ipc.obj: `Build.getCFiles(TARGET.name)` makefile
 	@-$(call RM, $@)
 	@echo cl`TARGET.suffix` $< ...
 	@$(CC) $(BUILD_DEFS) $(XOPTS) $(BIOS_INC) \
-	$(IPC_INC) $(IO_INC) $(UTILS_INC) \
+	$(IPC_INC) $(UTILS_INC) \
 %var sources = Build.getCFiles(TARGET.name).split(' ');
 %for each (var s in sources) {
 %    if (s.substring(0,4) == "xdc/") {

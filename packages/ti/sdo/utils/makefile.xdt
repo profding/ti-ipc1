@@ -53,8 +53,6 @@ SYSBIOS_INC  = -I"`xdc.getPackageRepository("ti.sysbios")`"
 
 IPC_INC    = -I"`xdc.getPackageRepository("ti.sdo.ipc")`"
 
-IO_INC    = -I"`xdc.getPackageRepository("ti.sdo.io")`"
-
 UTILS_INC    = -I"`xdc.getPackageRepository("ti.sdo.utils")`"
 
 CC = `CGEN`/bin/`TARGET.cc.cmd` $(CCOPTS) -I `CGEN`/include

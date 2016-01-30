@@ -35,7 +35,6 @@
  */
 
 //Pkg.makePrologue = "include custom.mak";
-xdc.loadCapsule('procNamesDocGen.xs');
 
 var IpcBuild = xdc.loadCapsule("ti/sdo/ipc/Build.xs");
 
@@ -48,7 +47,7 @@ IpcBuild.buildLibs(objList, undefined, null, arguments);
 /* generate smp makefiles */
 IpcBuild.buildLibs(objList, undefined, null, ["profile=smp"]);
 
-Pkg.otherFiles = [ "package.bld", "doc-files", "procNamesDocGen.xs" ];
+Pkg.otherFiles = [ "package.bld" ];
 
 /* include source files in the release package */
 Pkg.attrs.exportSrc = true;

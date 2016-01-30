@@ -152,22 +152,13 @@ var utilsSources = "utils/MultiProc.c " +
                    "utils/NameServerRemoteNull.c " +
                    "utils/NameServer.c ";
 
-var ioSources    = "io/DriverTable.c " +
-                   "io/Stream.c " +
-                   "io/drivers/IomAdapter.c " +
-                   "io/drivers/Generator.c " +
-                   "io/converters/DriverAdapter.c " +
-                   "io/converters/Transformer.c " +
-                   "io/converters/NullConverter.c ";
-
 var commonSources = ipcSources +
                     gatesSources +
                     heapsSources +
                     notifyDriverSources +
                     nsremoteSources +
                     transportsSources +
-                    utilsSources +
-                    ioSources;
+                    utilsSources;
 
 var C64PSources  =
                    "ipc/gates/GateAAMonitor.c " +
@@ -323,9 +314,6 @@ var ipcPackages = [
     "ti.sdo.ipc.notifyDrivers",
     "ti.sdo.ipc.nsremote",
     "ti.sdo.ipc.transports",
-    "ti.sdo.io",
-    "ti.sdo.io.drivers",
-    "ti.sdo.io.converters",
     "ti.sdo.utils",
 ];
 
@@ -356,8 +344,6 @@ var asmList = {
 };
 
 var cFiles = {
-    "ti.sdo.io.DriverTypes" :
-        { cSources: [] },
 }
 
 /*

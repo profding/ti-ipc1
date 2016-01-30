@@ -42,8 +42,7 @@
 %var BIOS = xdc.module("ti.sysbios.BIOS");
 %var Build = xdc.module("ti.sdo.utils.Build");
 %if ((BIOS.libType == BIOS.LibType_Custom)
-%      && (xdc.module('ti.sdo.ipc.Build').$used == false)
-%      && (xdc.module('ti.sdo.io.Build').$used == false)) {
+%      && (xdc.module('ti.sdo.ipc.Build').$used == false)) {
 %%{
     /* get the specified output directory (saved when BIOS was "used") */
     var outputDir = this.$private.outputDir;
