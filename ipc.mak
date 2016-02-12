@@ -102,7 +102,7 @@ XDCARGS= \
     ti.targets.arp32.elf.ARP32_far=\"$(ti.targets.arp32.elf.ARP32_far)\" \
     gnu.targets.arm.M3=\"$(gnu.targets.arm.M3)\" \
     gnu.targets.arm.M4=\"$(gnu.targets.arm.M4)\" \
-    gnu.targets.arm.M4F=\"$(gnu.targets.arm.M4F)\"
+    gnu.targets.arm.M4F=\"$(gnu.targets.arm.M4F)\" \
     gnu.targets.arm.A15=\"$(gnu.targets.arm.A15)\"
 
 #

@@ -105,7 +105,7 @@
 
 #define MAILBOX_EOI_REG               (NotifyDriverMbx_mailboxBaseAddr + 0x140)
 
-#define MBX(src, dst)                 (##src##_TO_##dst##)
+#define MBX(src, dst)                 (src##_TO_##dst)
 
 #define PROCID_HOST                   NotifyDriverMbx_hostProcId
 #define PROCID_VPSS                   NotifyDriverMbx_vpssProcId
@@ -127,7 +127,7 @@
     while (REG32(MAILBOX_STATUS(MBX(src, dst)))) {                      \
         REG32(MAILBOX_MESSAGE(MBX(src, dst)));                          \
     }                                                                   \
-    REG32(MAILBOX_IRQSTATUS_CLR_##dst##)                                \
+    REG32(MAILBOX_IRQSTATUS_CLR_##dst)                                  \
             = MAILBOX_REG_VAL(MBX(src, dst));
 
 Int NotifyDriverMbx_Module_startup(Int phase)
@@ -517,9 +517,9 @@ Void NotifyDriverMbx_enableEvent(NotifyDriverMbx_Object *obj, UInt32 eventId)
             while(REG32(MAILBOX_STATUS(MBX(src, dst))) == 0);               \
             payload = REG32(MAILBOX_MESSAGE(MBX(src, dst)));                \
         }                                                                   \
-        REG32(MAILBOX_IRQSTATUS_CLR_##dst##) =                              \
+        REG32(MAILBOX_IRQSTATUS_CLR_##dst) =                                \
                 MAILBOX_REG_VAL(MBX(src, dst));                             \
-        obj = NotifyDriverMbx_module->drvHandles[PROCID_##src##];           \
+        obj = NotifyDriverMbx_module->drvHandles[PROCID_##src];             \
         Assert_isTrue(obj != NULL, ti_sdo_ipc_Notify_A_internal);           \
         if (TEST_BIT(obj->evtRegMask, eventId)) {                           \
             ti_sdo_ipc_Notify_exec(obj->notifyHandle,                       \
