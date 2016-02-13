@@ -73,9 +73,9 @@ IPC_INC    = -I"`xdc.getPackageRepository("ti.sdo.ipc")`"
 UTILS_INC    = -I"`xdc.getPackageRepository("ti.sdo.utils")`"
 
 %if (TARGET.$name.match(/gnu/)) {
-CC = `CGEN`/`TARGET.cc.cmd` $(CCOPTS) -I `CGEN`/include
-ASM = `CGEN`/`TARGET.asm.cmd` $(CCOPTS) -I `CGEN`/include
-AR = `CGEN`/`TARGET.ar.cmd` `TARGET.ar.opts`
+CC = `CGEN`/`TARGET.ccBin.cmd` $(CCOPTS) -I `CGEN`/arm-none-eabi/include
+ASM = `CGEN`/`TARGET.asmBin.cmd` $(CCOPTS) -I `CGEN`/arm-none-eabi/include
+AR = `CGEN`/`TARGET.arBin.cmd` `TARGET.ar.opts`
 %}
 %else {
 CC = `CGEN`/bin/`TARGET.cc.cmd` $(CCOPTS) -I `CGEN`/include
